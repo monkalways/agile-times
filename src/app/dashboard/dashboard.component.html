@@ -1,3 +1,67 @@
-<p>
-  dashboard works!
-</p>
+<div class="ui-g">
+
+  <app-statistic
+    [label]="'My hours'"
+    [value]="132"
+    [icon]="'fa-clock-o'"
+    [color]="'#02ACAD'"
+    class="ui-g-12 ui-md-3">
+  </app-statistic>
+  
+  <app-statistic
+    [label]="'Stories'"
+    [value]="35"
+    [icon]="'fa-users'"
+    [color]="'#318DE5'"
+    class="ui-g-12 ui-md-3">
+  </app-statistic>
+
+  <app-statistic
+    [label]="'Remaining'"
+    [value]="23"
+    [icon]="'fa-hourglass-2'"
+    [color]="'#7275A9'"
+    class="ui-g-12 ui-md-3">
+  </app-statistic>
+
+  <app-statistic
+    [label]="'Sprints'"
+    [value]="4"
+    [icon]="'fa-area-chart'"
+    [color]="'#F1A54E'"
+    class="ui-g-12 ui-md-3">
+  </app-statistic>
+
+</div>
+
+<div class="ui-g">
+
+  <p-panel class="ui-g-12 ui-md-4" header="Hours By Project (pie)">
+    <p-chart type="pie" [data]="hoursByProjectChartData" [options]="chartOptions"></p-chart>
+  </p-panel>
+
+  <p-panel class="ui-g-12 ui-md-4" header="Hours By Project (doughnut)">
+    <p-chart type="doughnut" [data]="hoursByProjectChartData"></p-chart>
+  </p-panel>
+
+  <p-panel class="ui-g-12 ui-md-4" header="Hours By Project (polarArea)">
+    <p-chart type="polarArea" [data]="hoursByProjectChartData"></p-chart>
+  </p-panel>
+
+</div>
+
+<div class="ui-g">
+
+  <p-panel class="ui-g-12 ui-md-4" header="Hours By Team (bar)">
+    <p-chart type="bar" [data]="hoursByTeamChartData"></p-chart>
+  </p-panel>
+
+  <p-panel class="ui-g-12 ui-md-4" header="Hours By Team (line)">
+    <p-chart type="line" [data]="hoursByTeamChartData"></p-chart>
+  </p-panel>
+
+  <p-panel class="ui-g-12 ui-md-4" header="Hours By Team (mixed)">
+    <p-chart type="bar" [data]="hoursByTeamChartDataMixed" (onDataSelect)="onDataSelect($event)"></p-chart>
+  </p-panel>
+
+</div>
