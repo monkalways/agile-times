@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,7 @@ import { SettingsComponent } from './settings/settings.component';
     RouterModule.forRoot([
       { path: 'dashboard', component: DashboardComponent },
       { path: 'settings', component: SettingsComponent },
+      { path: 'projects', component: ProjectsComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ])
