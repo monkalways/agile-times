@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.menuItems = [
       { label: 'Dashboard', icon: 'fa-home', routerLink: ['/dashboard'] },
+      { label: 'Timesheet', icon: 'fa-clock-o', routerLink: ['/alltimes'] },
       { label: 'Projects', icon: 'fa-send-o', routerLink: ['/projects'] },
       { label: 'Settings', icon: 'fa-sliders', routerLink: ['/settings'] }
     ];

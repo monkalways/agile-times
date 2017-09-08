@@ -1,0 +1,34 @@
+<p-dataTable #dt [value]="allTimesheetData" class="ui-g-12" 
+    emptyMessage="No time entries found" [reorderableColumns]="true" columnResizeMode="fit" [resizableColumns]="true"
+    [globalFilter]="tableSearch" exportFilename="users" [editable]="true" (onEditComplete)="onEditComplete($event)"
+    selectionMode="single" [(selection)]="selectedRow"
+    [contextMenu]="tableContextMenu"
+    [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 15, 20]" [totalRecords]="recordCount" [pageLinks]="8">
+
+  <p-column field="user" header="User" [editable]="true"></p-column>
+  <p-column field="project" header="Project" [filter]="true" [filterPlaceholder]="'Type a project'" [filterMatchMode]="'equals'" 
+      [style]="{'overflow':'visible'}" [editable]="true">
+    <ng-template pTemplate="filter" let-col>
+      <p-dropdown [options]="allProjects" [style]="{'width':'100%', 'height': '30px'}" 
+        (onChange)="dt.filter($event.value, col.field, col.filterMatchMode)"
+        styleClass="ui-column-filter"></p-dropdown>
+    </ng-template>
+    <ng-template pTemplate="editor" let-col let-project="rowData">
+      <p-dropdown [(ngModel)]="project[col.field]" [options]="allProjects" [style]="{'width':'100%'}" [autoWidth]="false" required="true"
+        styleClass="ui-column-filter"></p-dropdown>
+    </ng-template>
+  </p-column>
+  <p-column field="category" header="Category" [sortable]="true"></p-column>
+  <p-column field="startTime" header="Start Time" [sortable]="true"></p-column>
+  <p-column field="endTime" header="End Time"></p-column>
+
+  <p-footer>
+    <label for="tableSearch">Search: </label>
+    <input type="text" id="tableSearch" #tableSearch placeholder="Search All the Things" /> 
+    <button type="button" pButton icon="fa-table" label="Export" (click)="dt.exportCSV()" style="float: right;"></button>
+  </p-footer>
+</p-dataTable>
+
+<p-contextMenu #tableContextMenu [model]="contextMenu"></p-contextMenu>
+
+{{ selectedRow | json }}
