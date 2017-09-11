@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AlltimesComponent } from "./alltimes/alltimes.component";
+import { TimesheetComponent } from "./timesheet/timesheet.component";
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { AlltimesComponent } from "./alltimes/alltimes.component";
       { path: 'settings', component: SettingsComponent },
       { path: 'projects', component: ProjectsComponent },
       { path: 'alltimes', component: AlltimesComponent },
+      { path: 'timesheet', component: TimesheetComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ])

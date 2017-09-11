@@ -1,0 +1,30 @@
+.header {
+    padding: 1em;
+    color: white;
+    background-color: #0275D8;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: xx-large;
+    display: inline;
+}
+
+h3 {
+    font-weight: lighter;
+    font-size: x-large;
+    display: inline;
+}
+
+.tab >>> li {
+    width: 19%
+}
+
+.timesheet-grid >>> .ui-datatable {
+    margin: 1em;
+}
+
+p-schedule >>> .calendar {
+    height: 300px;
+}
